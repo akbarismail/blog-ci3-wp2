@@ -21,6 +21,10 @@ class Dashboard extends CI_Controller
      */
     public function index()
     {
-        $this->load->view('admin/dashboard_view');
+        if (isset($_SESSION['user_id'])) {
+            $this->load->view('admin/dashboard_view');
+        } else {
+            redirect("admin/login");
+        }
     }
 }
