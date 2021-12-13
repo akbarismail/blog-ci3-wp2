@@ -159,7 +159,5 @@
         </table>
     </div>
 </main>
-</div>
-</div>
 
 <?php $this->load->view('admin/footer_view'); ?>

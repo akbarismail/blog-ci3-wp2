@@ -21,7 +21,9 @@ class Blogs extends CI_Controller
      */
     public function index()
     {
-        $this->load->view('admin/viewblog');
+        $query = $this->db->query("SELECT * FROM `articles` ORDER BY `blogid` DESC");
+        $data['result'] = $query->result_array();
+        $this->load->view('admin/viewblog', $data);
     }
 
     public function addBlog()
@@ -58,5 +60,15 @@ class Blogs extends CI_Controller
                 }
             }
         }
+    }
+
+    public function edit_blog($blog_id)
+    {
+        print_r($blog_id);
+    }
+
+    public function delete_blog($blog_id)
+    {
+        print_r($blog_id);
     }
 }
