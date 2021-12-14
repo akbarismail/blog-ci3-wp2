@@ -1,7 +1,9 @@
 <?php $this->load->view('admin/header_view'); ?>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <h2>Add Blog</h2>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h2>Add Blog</h2>
+    </div>
 
     <form enctype="multipart/form-data" action="<?= base_url() . 'admin/blogs/add_blog_post'; ?>" method="post">
         <div class="form-group">
@@ -31,4 +33,9 @@
         return;
     }
     ?>
+</script>
+
+<script src="https://cdn.ckeditor.com/4.17.1/standard/ckeditor.js"></script>
+<script>
+    CKEDITOR.replace('blog_desc');
 </script>

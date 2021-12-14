@@ -64,7 +64,7 @@ class Blogs extends CI_Controller
 
     public function edit_blog($blog_id)
     {
-        $query = $this->db->query("SELECT `blog_title`, `blog_desc`, `blog_img` FROM `articles` WHERE `blogid`='$blog_id'");
+        $query = $this->db->query("SELECT `blog_title`, `blog_desc`, `blog_img`, `status` FROM `articles` WHERE `blogid`='$blog_id'");
 
         $data['result'] = $query->result_array();
         $data['blog_id'] = $blog_id;
@@ -88,8 +88,9 @@ class Blogs extends CI_Controller
                 $blog_title = $_POST['blog_title'];
                 $blog_desc = $_POST['blog_desc'];
                 $blog_id = $_POST['blog_id'];
+                $publish_unpublish = $_POST['publish_unpublish'];
 
-                $query = $this->db->query("UPDATE `articles` SET `blog_title`='$blog_title',`blog_desc`='$blog_desc',`blog_img`='$fileUrl' WHERE `blogid`='$blog_id'");
+                $query = $this->db->query("UPDATE `articles` SET `blog_title`='$blog_title',`blog_desc`='$blog_desc',`blog_img`='$fileUrl',`status`='$publish_unpublish' WHERE `blogid`='$blog_id'");
 
                 if ($query) {
                     $this->session->set_flashdata('updated', 'yes');
@@ -103,8 +104,9 @@ class Blogs extends CI_Controller
             $blog_title = $_POST['blog_title'];
             $blog_desc = $_POST['blog_desc'];
             $blog_id = $_POST['blog_id'];
+            $publish_unpublish = $_POST['publish_unpublish'];
 
-            $query = $this->db->query("UPDATE `articles` SET `blog_title`='$blog_title',`blog_desc`='$blog_desc' WHERE `blogid`='$blog_id'");
+            $query = $this->db->query("UPDATE `articles` SET `blog_title`='$blog_title',`blog_desc`='$blog_desc',`status`='$publish_unpublish' WHERE `blogid`='$blog_id'");
 
             if ($query) {
                 $this->session->set_flashdata('updated', 'yes');

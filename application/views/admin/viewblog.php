@@ -1,7 +1,10 @@
 <?php $this->load->view('admin/header_view'); ?>
 
 <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-md-4">
-    <h2>View Blog</h2>
+    <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
+        <h2>View Blog</h2>
+    </div>
+
     <div class="table-responsive">
         <table class="table table-striped table-sm">
             <thead>
