@@ -14,7 +14,7 @@
             <input type="file" class="form-control" name="blog_img">
         </div>
 
-        <button type="submit" class="btn btn-primary">Add Blog</button>
+        <button type="submit" class="btn btn-primary">Save</button>
     </form>
 </main>
 
@@ -24,10 +24,9 @@
     <?php
     if (isset($_SESSION['inserted'])) {
         if ($_SESSION['inserted'] == "yes") {
-
             echo "alert('Data Inserted Success')";
-        } else {
-            echo "alert('Not Inserted')";
+        } else if ($_SESSION['inserted'] == "no") {
+            echo 'alert("Not Inserted")';
         }
         return;
     }

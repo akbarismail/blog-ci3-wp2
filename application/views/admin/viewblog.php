@@ -64,4 +64,18 @@
             })
         }
     })
+
+    <?php
+
+    if (isset($_SESSION['updated'])) {
+        if ($_SESSION['updated'] == "yes") {
+            echo 'alert("Data has been updated")';
+        } else if ($_SESSION['updated'] == "no") {
+            echo 'alert("Some with wrong")';
+        }
+        return;
+    }
+
+
+    ?>
 </script>
