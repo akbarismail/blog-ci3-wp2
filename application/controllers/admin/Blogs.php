@@ -64,11 +64,26 @@ class Blogs extends CI_Controller
 
     public function edit_blog($blog_id)
     {
-        print_r($blog_id);
+        $query = $this->db->query("SELECT `blog_title`, `blog_desc`, `blog_img` FROM `articles` WHERE `blogid`='$blog_id'");
+
+        $data['result'] = $query->result_array();
+        $this->load->view('admin/editblog', $data);
     }
 
-    public function delete_blog($blog_id)
+    public function edit_blog_post()
     {
-        print_r($blog_id);
+        print_r($_POST);
+    }
+
+    public function delete_blog()
+    {
+        $deleteId = $_POST['deleteId'];
+        $query = $this->db->query("DELETE FROM `articles` WHERE `blogid`='$deleteId'");
+
+        if ($query) {
+            echo "deleted";
+        } else {
+            echo "Not Deleted";
+        }
     }
 }

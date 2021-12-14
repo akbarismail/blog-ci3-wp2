@@ -24,8 +24,8 @@
                         <td>" . $value['blog_title'] . "</td>
                         <td>" . $value['blog_desc'] . "</td>
                         <td><img src='" . base_url() . $value['blog_img'] . "' class='img-fluid' width='100' ></td>
-                        <td><a class=\"btn btn-info\" href='" . base_url() . 'admin/blogs/edit_blog/1' . "'>Edit</a>
-                            <a class=\"btn btn-danger\" href='" . base_url() . 'admin/blogs/delete_blog/1' . "'>Delete</a>
+                        <td><a class=\"btn btn-info\" href='" . base_url() . 'admin/blogs/edit_blog/' . $value['blogid'] . "'>Edit</a>
+                            <a class=\"btn delete btn-danger\" data-id='" . $value['blogid'] . "'>Delete</a>
                         </td>
                     </tr>";
                         $counter++;
@@ -41,3 +41,27 @@
 </main>
 
 <?php $this->load->view('admin/footer_view'); ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+    $(".delete").click(function() {
+        let deleteId = $(this).attr('data-id');
+        let isConfirm = confirm('Are you sure want to delete the blog ?');
+
+        if (isConfirm) {
+            $.ajax({
+                url: '<?= base_url() . 'admin/blogs/delete_blog/' ?>',
+                type: 'post',
+                data: {
+                    'deleteId': deleteId
+                },
+                success: function(res) {
+                    console.info(res);
+                    if (res == "deleted") {
+                        location.reload();
+                    }
+                }
+            })
+        }
+    })
+</script>
