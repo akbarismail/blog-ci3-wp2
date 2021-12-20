@@ -30,7 +30,6 @@
         } else if ($_SESSION['inserted'] == "no") {
             echo 'alert("Not Inserted")';
         }
-        return;
     }
     ?>
 </script>
