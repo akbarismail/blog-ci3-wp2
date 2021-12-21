@@ -14,7 +14,7 @@
 </head>
 
 <body>
-    <form class="form-signin" action="<?= base_url() . 'admin/login/login_post'; ?>" method="POST">
+    <form class="form-signin bg-white" action="<?= base_url() . 'admin/login/login_post'; ?>" method="POST">
 
         <?php
 
